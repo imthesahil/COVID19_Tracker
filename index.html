@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Tracker</title>
+</head>
+<body>
+    <h1>COVID-19 Tracker</h1>
+
+    <div>
+        <label for="state1">State 1:</label>
+        <input type="text" id="state1" placeholder="State 1">
+        <label for="newCases1">New Cases:</label>
+        <input type="number" id="newCases1" placeholder="New Cases">
+
+        <br>
+
+        <label for="state2">State 2:</label>
+        <input type="text" id="state2" placeholder="State 2">
+        <label for="newCases2">New Cases:</label>
+        <input type="number" id="newCases2" placeholder="New Cases">
+
+        <br>
+
+        <label for="state3">State 3:</label>
+        <input type="text" id="state3" placeholder="State 3">
+        <label for="newCases3">New Cases:</label>
+        <input type="number" id="newCases3" placeholder="New Cases">
+    </div>
+
+    <br>
+
+    <button onclick="updateCases()">Add Cases</button>
+
+    <script>
+        function updateCases() {
+            // Get input values
+            const state1 = document.getElementById("state1").value;
+            const newCases1 = parseInt(document.getElementById("newCases1").value);
+
+            const state2 = document.getElementById("state2").value;
+            const newCases2 = parseInt(document.getElementById("newCases2").value);
+
+            const state3 = document.getElementById("state3").value;
+            const newCases3 = parseInt(document.getElementById("newCases3").value);
+
+            // Calculate total cases for each state
+            const totalCases1 = newCases1;
+            const totalCases2 = newCases2;
+            const totalCases3 = newCases3;
+
+            // Find the maximum cases and states with similar counts
+            let maxCases = Math.max(totalCases1, totalCases2, totalCases3);
+            let maxState = "";
+
+            if (totalCases1 === maxCases) {
+                maxState += state1 + " ";
+            }
+            if (totalCases2 === maxCases) {
+                maxState += state2 + " ";
+            }
+            if (totalCases3 === maxCases) {
+                maxState += state3 + " ";
+            }
+
+            // Display the results
+            alert("Maximum cases in: " + maxState);
+        }
+    </script>
+</body>
+</html>
